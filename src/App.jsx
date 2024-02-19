@@ -17,18 +17,55 @@ function App() {
       </header>
       <body className="App-body">
         <div className="number-field">
+          <select className="operator2">
+            <option value=" " selected> </option>
+            <option value="(">(</option>
+          </select>
+
           <div className="number-area">
           {input1}
           </div>
-          +
+
+          <select className="operator1">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+
+          <select className="operator2">
+            <option value=" " selected> </option>
+            <option value="(">(</option>
+          </select>
+
           <div className="number-area">
           {input2}
           </div>
-          +
+
+          <select className="operator2">
+            <option value=" " selected> </option>
+            <option value="(">(</option>
+            <option value=")">)</option>
+          </select>
+          
+          <select className="operator1">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+
           <div className="number-area">
           {input3}
           </div>
-          +
+
+          <select className="operator1">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+
           <div className="number-area">
           {input4}
           </div>
