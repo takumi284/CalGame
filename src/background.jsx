@@ -13,10 +13,10 @@ function CorrectWrong(list){
         //計算式として成り立たない
         return false;
     }
-    //listの2番目(数字部分）/15番目の文字
+    //list[1]
     formula += list[1];
 
-    //listの3番目/15番目の文字
+    //list[2]
     if (list[2] === 0){
         //空白の場合
     }else if(list[2] === 5 || list[2] === 6){
@@ -30,7 +30,7 @@ function CorrectWrong(list){
         //空白の場合
     }else if(list[3] === 5){
         //( の場合
-        formula = formula + operator[3];
+        formula += operator[list[3]];
     }else{
         //それ以外の演算子の場合
         //計算式として成り立たない
@@ -99,9 +99,9 @@ function CorrectWrong(list){
     }else{
         return false;
     }
-
     return eval(formula);
 }
+
 function check(eq){
     if(eq === 10){
         //正解の時1を返す
@@ -116,4 +116,49 @@ function check(eq){
 //を実行すると、1が返ってくる
 //(4 * 2)+ 3 - 1  = 10
 
+function test(list){
+    let first =  [5,list[0],0,0,list[1],6,0,5,list[2],0,0,list[3],6];
+    let second = [0,list[0],0,5,list[1],0,0,0,list[2],6,0,list[3],0];
+    let third =  [0,list[0],0,5,list[1],0,0,0,list[2],0,0,list[3],6];
+    let forth =  [5,list[0],0,0,list[1],0,0,0,list[2],6,0,list[3],0];
+    let fifth =  [0,list[0],0,0,list[1],0,0,0,list[2],0,0,list[3],0];
+    
+    for (let i = 1; i < 5; i++){
+        for(let j = 1; j < 5; j++){
+            for(let k = 1; k < 5; k++){
+                let check1 = first;
+                let check2 = second;
+                let check3 = third;
+                let check4 = forth;
+                let check5 = fifth;
+                check1[2] = i;
+                check1[6] = j;
+                check1[10] =k;
+                check2[2] = i;
+                check2[6] = j;
+                check2[10] =k;
+                check3[2] = i;
+                check3[6] = j;
+                check3[10] =k;
+                check4[2] = i;
+                check4[6] = j;
+                check4[10] =k;
+                check5[2] = i;
+                check5[6] = j;
+                check5[10] =k;
+                const checks = [check1, check2, check3, check4, check5];
+                for (let i = 0; i < checks.length; i++) {
+                    if (check(CorrectWrong(checks[i])) === 1) {
+                        return 1;
+                    }
+                }
+            }
+        }
+        
+    }
+    return 0;
+}
 
+//test([9,8,2,5])
+//を実行すると、1が返ってくる
+//(9+8)-(2+5) = 10
