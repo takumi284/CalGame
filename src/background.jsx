@@ -119,19 +119,19 @@ function CorrectWrong(list){
     }else{
         return false;
     }
-    var check = eval(formula);
-    if(check === 10){
+    return eval(formula);
+}
+function check(eq){
+    if(eq === 10){
         //正解の時1を返す
         return 1;
     }else{
         //不正解の時2を返す
         return 0;
     }
-    
-    
 }
 
-//CorrectWrong([5,4,0,3,0,2,6,1,0,3,0,2,0,1,0])
+//check(CorrectWrong([5,4,0,3,0,2,6,1,0,3,0,2,0,1,0]))
 //を実行すると、1が返ってくる
 //(4 * 2)+ 3 - 1  = 10
 //540302610302010
