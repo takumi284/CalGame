@@ -122,6 +122,10 @@ function test(list){
     let third =  [0,list[0],0,5,list[1],0,0,0,list[2],0,0,list[3],6];
     let forth =  [5,list[0],0,0,list[1],0,0,0,list[2],6,0,list[3],0];
     let fifth =  [0,list[0],0,0,list[1],0,0,0,list[2],0,0,list[3],0];
+    let sixth =  [5,list[0],0,0,list[1],6,0,0,list[2],0,0,list[3],0];
+    let seventh = [0,list[0],0,0,list[1],0,0,5,list[2],0,0,list[3],6];
+
+    
     
     for (let i = 1; i < 5; i++){
         for(let j = 1; j < 5; j++){
@@ -131,6 +135,8 @@ function test(list){
                 let check3 = third;
                 let check4 = forth;
                 let check5 = fifth;
+                let check6 = sixth;
+                let check7 = seventh;
                 check1[2] = i;
                 check1[6] = j;
                 check1[10] =k;
@@ -146,7 +152,14 @@ function test(list){
                 check5[2] = i;
                 check5[6] = j;
                 check5[10] =k;
-                const checks = [check1, check2, check3, check4, check5];
+                check6[2] = i;
+                check6[6] = j;
+                check6[10] =k;
+                check7[2] = i;
+                check7[6] = j;
+                check7[10] =k;
+                
+                const checks = [check1, check2, check3, check4, check5, check6, check7];
                 for (let i = 0; i < checks.length; i++) {
                     if (check(CorrectWrong(checks[i])) === 1) {
                         return 1;
