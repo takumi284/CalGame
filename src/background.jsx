@@ -1,4 +1,4 @@
-operator = ['','+', '-', '*', '/', '(', ')'];
+var operator = ['','+', '-', '*', '/', '(', ')'];
 
 function CorrectWrong(list){
     var formula = '';
@@ -171,6 +171,8 @@ function test(list){
     }
     return 0;
 }
+
+export {check, CorrectWrong, test};
 
 //test([9,8,2,5])
 //を実行すると、1が返ってくる
