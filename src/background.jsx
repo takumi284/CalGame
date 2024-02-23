@@ -1,5 +1,6 @@
 var operator = ['','+', '-', '*', '/', '(', ')'];
 
+//CorrectWrong関数：引数として受け取ったlistの中身を数式に変換する関数
 function CorrectWrong(list){
     var formula = '';
     //listの1番目/15番目の文字
@@ -99,9 +100,15 @@ function CorrectWrong(list){
     }else{
         return false;
     }
+    return formula;
+}
+
+//calculation関数：引数として受け取った数式を計算する関数
+function calculation(formula){
     return eval(formula);
 }
 
+//check関数：引数として受け取った数式の答えが10かどうかを判定する関数
 function check(eq){
     if(eq === 10){
         //正解の時1を返す
@@ -112,10 +119,12 @@ function check(eq){
     }
 }
 
-//check(CorrectWrong([5,4,3,0,2,6,1,0,3,0,2,1,0]))
+//check(calculation(CorrectWrong([5,4,3,0,2,6,1,0,3,0,2,1,0])))
 //を実行すると、1が返ってくる
 //(4 * 2)+ 3 - 1  = 10
 
+
+//test関数：引数として受け取ったlistが10になるための数式かど存在するかどうかを判定する関数
 function test(list){
     let first =  [5,list[0],0,0,list[1],6,0,5,list[2],0,0,list[3],6];
     let second = [0,list[0],0,5,list[1],0,0,0,list[2],6,0,list[3],0];
@@ -161,7 +170,7 @@ function test(list){
                 
                 const checks = [check1, check2, check3, check4, check5, check6, check7];
                 for (let i = 0; i < checks.length; i++) {
-                    if (check(CorrectWrong(checks[i])) === 1) {
+                    if (check(calculation(CorrectWrong(checks[i]))) === 1) {
                         return 1;
                     }
                 }
