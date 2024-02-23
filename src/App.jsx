@@ -1,128 +1,170 @@
 import React, { useState } from 'react';
 import './App.css';
+import {check, CorrectWrong, test, make_answer} from './background';
+
 
 function App() {
-
   // 各inputの初期値をstateで管理
-  const [input1, setInput1] = useState(Math.floor(Math.random() * 10));
-  const [input2, setInput2] = useState(Math.floor(Math.random() * 10));
-  const [input3, setInput3] = useState(Math.floor(Math.random() * 10));
-  const [input4, setInput4] = useState(Math.floor(Math.random() * 10));
-  const [bracket1, setBracket1] = useState("");
-  const [bracket2, setBracket2] = useState("");
-  const [bracket3, setBracket3] = useState("");
-  const [bracket4, setBracket4] = useState("");
-  const [bracket5, setBracket5] = useState("");
-  const [bracket6, setBracket6] = useState("");
+  while (true){
+    var in1 = Math.floor(Math.random() * 10);
+    var in2 = Math.floor(Math.random() * 10);
+    var in3 = Math.floor(Math.random() * 10);
+    var in4 = Math.floor(Math.random() * 10);
 
-  const setBrackets = (b1, b2, b3, b4, b5, b6) => {
-    setBracket1(b1);
-    setBracket2(b2);
-    setBracket3(b3);
-    setBracket4(b4);
-    setBracket5(b5);
-    setBracket6(b6);
+    var flag = test([in1, in2, in3, in4]);
+    if (flag === true){
+      break;
+    }
   }
+  const [input1, setInput1] = useState(in1);
+  const [input2, setInput2] = useState(in2);
+  const [input3, setInput3] = useState(in3);
+  const [input4, setInput4] = useState(in4);
+  const [bracket1, setBracket1] = useState(0);
+  const [bracket2, setBracket2] = useState(0);
+  const [bracket3, setBracket3] = useState(0);
+  const [bracket4, setBracket4] = useState(0);
+  const [bracket5, setBracket5] = useState(0);
+  const [bracket6, setBracket6] = useState(0);
+  const [cal1, setCal1] = useState(1);
+  const [cal2, setCal2] = useState(1);
+  const [cal3, setCal3] = useState(1);
+  const [n, setN] = useState(1);
+
+  const operator = ['','+', '-', '*', '/', '(', ')'];
+  let formula = [bracket1, input1, cal1, bracket2, input2, bracket3, cal2, bracket4, input3, bracket5, cal3, input4, bracket6];
+
+  const update = () => {
+    // 空の配列を作成
+    var selectedValues = [];
+
+    // HTMLから要素を取得
+    var selectElements = document.querySelectorAll('.operator1');
+
+    // 各要素に対してループ処理を行う
+    selectElements.forEach(function(selectElement) {
+      // 選択されたオプションの値を取得して配列に追加
+      selectedValues.push(selectElement.value);
+    });
+
+    setCal1(parseInt(selectedValues[0], 10));
+    setCal2(parseInt(selectedValues[1], 10));
+    setCal3(parseInt(selectedValues[2], 10));
+
+    var c1 = parseInt(selectedValues[0], 10);
+    var c2 = parseInt(selectedValues[1], 10);
+    var c3 = parseInt(selectedValues[2], 10);
+
+    let form = [bracket1, input1, c1, bracket2, input2, bracket3, c2, bracket4, input3, bracket5, c3, input4, bracket6];
+
+    if (check(eval(CorrectWrong(form))) == true) {
+      alert('正解 ' + eval(CorrectWrong(form)));
+      if (n < 5) {
+        while (true){
+          var in1 = Math.floor(Math.random() * 10);
+          var in2 = Math.floor(Math.random() * 10);
+          var in3 = Math.floor(Math.random() * 10);
+          var in4 = Math.floor(Math.random() * 10);
+      
+          var flag = test([in1, in2, in3, in4]);
+          if (flag === true){
+            break;
+          }
+        }
+        setInput1(in1);
+        setInput2(in2);
+        setInput3(in3);
+        setInput4(in4);
+        setN(n + 1);
+      }
+    } else{
+      alert('不正解' + eval(CorrectWrong(form)));
+    }    
+  };
+
+  const answer = () => {
+    alert(make_answer([input1, input2, input3, input4]));
+  };
 
   const handleButton4 = () => {
-    setBracket1("");
-    setBracket2("");
-    setBracket3("");
-    setBracket4("");
-    setBracket5("");
-    setBracket6("");
+    setBracket1(0);
+    setBracket2(0);
+    setBracket3(0);
+    setBracket4(0);
+    setBracket5(0);
+    setBracket6(0);
   };
 
 
   const handleButton2_2 = () => {
-    setBracket1("(");
-    setBracket2("");
-    setBracket3(")");
-    setBracket4("(");
-    setBracket5("");
-    setBracket6(")");
+    setBracket1(5);
+    setBracket2(0);
+    setBracket3(6);
+    setBracket4(5);
+    setBracket5(0);
+    setBracket6(6);
   };
 
   const handleButton2_11 = () => {
-    setBracket1("(");
-    setBracket2("");
-    setBracket3(")");
-    setBracket4("");
-    setBracket5("");
-    setBracket6("");
+    setBracket1(5);
+    setBracket2(0);
+    setBracket3(6);
+    setBracket4(0);
+    setBracket5(0);
+    setBracket6(0);
   };
 
   const handleButton11_2 = () => {
-    setBracket1("");
-    setBracket2("");
-    setBracket3("");
-    setBracket4("(");
-    setBracket5("");
-    setBracket6(")");
+    setBracket1(0);
+    setBracket2(0);
+    setBracket3(0);
+    setBracket4(5);
+    setBracket5(0);
+    setBracket6(6);
   };
 
   const handleButton3_1 = () => {
-    setBracket1("(");
-    setBracket2("");
-    setBracket3("");
-    setBracket4("");
-    setBracket5(")");
-    setBracket6("");
+    setBracket1(5);
+    setBracket2(0);
+    setBracket3(0);
+    setBracket4(0);
+    setBracket5(6);
+    setBracket6(0);
+
   };
 
   const handleButton1_3 = () => {
-    setBracket1("");
-    setBracket2("(");
-    setBracket3("");
-    setBracket4("");
-    setBracket5("");
-    setBracket6(")");
+    setBracket1(0);
+    setBracket2(5);
+    setBracket3(0);
+    setBracket4(0);
+    setBracket5(0);
+    setBracket6(6);
   };
 
   const handleButton1_2_1 = () => {
-    setBracket1("");
-    setBracket2("(");
-    setBracket3("");
-    setBracket4("");
-    setBracket5(")");
-    setBracket6("");
+    setBracket1(0);
+    setBracket2(5);
+    setBracket3(0);
+    setBracket4(0);
+    setBracket5(6);
+    setBracket6(0);
   };
-
-  // // タイマーの開始時間
-  // let seconds = 0;
-  // let minutes = 0;
-  
-  // // タイマー要素の取得
-  // const timerElement = document.getElementById('timer');
-  
-  // // タイマーの更新関数
-  // function updateTimer() {
-  //   seconds++;
-  //   if (seconds >= 60) {
-  //     seconds = 0;
-  //     minutes++;
-  //   }
-  //   timerElement.textContent = (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
-  // }
-  
-  // // タイマーの開始
-  // setInterval(updateTimer, 1000);
-
-  // // タイマーの停止
-  // function stopTimer() {
-  //   clearInterval(timerInterval);
-  // }
 
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>CalGame</h1>
+        <h1>δέκαGame</h1>
+        デカゲーム
       </header>
       <body className="App-body">
+        <div align="left">
+          <button className="button2" onClick={answer}>正解例</button>
+        </div>
         <div className="number-field">
           <div className="bracket">
-            {bracket1}
+            {operator[bracket1]}
           </div>
 
           <div className="number-area">
@@ -130,18 +172,14 @@ function App() {
           </div>
 
           <select className="operator1">
-            <option value="+" selected>+</option>
-            <option value="-">-</option>
-            <option value="*">x</option>
-            <option value="/">÷</option>
+            <option value="1" selected>+</option>
+            <option value="2">-</option>
+            <option value="3">x</option>
+            <option value="4">÷</option>
           </select>
 
-          {/* <select className="operator2">
-            <option value=" " selected> </option>
-            <option value="(">(</option>
-          </select> */}
           <div className="bracket">
-            {bracket2} 
+            {operator[bracket2]} 
           </div>
 
           <div className="number-area">
@@ -149,24 +187,18 @@ function App() {
           </div>
 
           <div className="bracket">
-            {bracket3}
+            {operator[bracket3]}
           </div>
-
-          {/* <select className="operator2">
-            <option value=" " selected> </option>
-            <option value="(">(</option>
-            <option value=")">)</option>
-          </select> */}
           
           <select className="operator1">
-            <option value="+" selected>+</option>
-            <option value="-">-</option>
-            <option value="*">x</option>
-            <option value="/">÷</option>
+            <option value="1" selected>+</option>
+            <option value="2">-</option>
+            <option value="3">x</option>
+            <option value="4">÷</option>
           </select>
 
           <div className="bracket">
-            {bracket4}
+            {operator[bracket4]}
           </div>
 
           <div className="number-area">
@@ -174,14 +206,14 @@ function App() {
           </div>
 
           <div className="bracket">
-            {bracket5}
+            {operator[bracket5]}
           </div>
 
           <select className="operator1">
-            <option value="+" selected>+</option>
-            <option value="-">-</option>
-            <option value="*">x</option>
-            <option value="/">÷</option>
+            <option value="1" selected>+</option>
+            <option value="2">-</option>
+            <option value="3">x</option>
+            <option value="4">÷</option>
           </select>
 
           <div className="number-area">
@@ -189,10 +221,10 @@ function App() {
           </div>
 
           <div className="bracket">
-            {bracket6}
+            {operator[bracket6]}
           </div>
         </div>
-        <button className="button1">cal</button>
+        <button className="button1" onClick={update}>answer</button>
         <div className='image_field'>
           <img src="image/4.png" className="image1" onClick={handleButton4}></img>
           <img src="image/2-2.png" className="image1" onClick={handleButton2_2}></img>
@@ -205,9 +237,7 @@ function App() {
           <p></p>
           <img src="image/1-2-1.png" className="image1" onClick={handleButton1_2_1}></img>
         </div>
-
-        {/* <button className="button2" onClick={stopTimer}>stop</button>
-        <p id="timer">00:00</p> */}
+        <p>{n}/5</p>
       </body>
     </div>
   );

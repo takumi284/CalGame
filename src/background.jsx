@@ -125,7 +125,7 @@ function check(eq){
 
 
 //test関数：引数として受け取ったlistが10になるための数式かど存在するかどうかを判定する関数
-function test(list){
+function make_answer(list){
     let first =  [5,list[0],0,0,list[1],6,0,5,list[2],0,0,list[3],6];
     let second = [0,list[0],0,5,list[1],0,0,0,list[2],6,0,list[3],0];
     let third =  [0,list[0],0,5,list[1],0,0,0,list[2],0,0,list[3],6];
@@ -171,17 +171,25 @@ function test(list){
                 const checks = [check1, check2, check3, check4, check5, check6, check7];
                 for (let i = 0; i < checks.length; i++) {
                     if (check(calculation(CorrectWrong(checks[i]))) === 1) {
-                        return 1;
+                        return CorrectWrong(checks[i]);
                     }
                 }
             }
         }
         
     }
-    return 0;
+    return false;
 }
 
-export {check, CorrectWrong, test};
+function test(list){
+    if (make_answer(list) === false){
+        return false;
+    } else {
+        return true;
+    }
+}
+
+export {check, CorrectWrong, test, make_answer};
 
 //test([9,8,2,5])
 //を実行すると、1が返ってくる
