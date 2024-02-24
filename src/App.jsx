@@ -32,7 +32,6 @@ function App() {
   const [n, setN] = useState(1);
 
   const operator = ['','+', '-', '*', '/', '(', ')'];
-  let formula = [bracket1, input1, cal1, bracket2, input2, bracket3, cal2, bracket4, input3, bracket5, cal3, input4, bracket6];
 
   const update = () => {
     // 空の配列を作成
@@ -76,6 +75,15 @@ function App() {
         setInput3(in3);
         setInput4(in4);
         setN(n + 1);
+        selectElements[0].value = 1;
+        selectElements[1].value = 1;
+        selectElements[2].value = 1;
+        setBracket1(0);
+        setBracket2(0);
+        setBracket3(0);
+        setBracket4(0);
+        setBracket5(0);
+        setBracket6(0);
       }
     } else{
       alert('不正解' + eval(CorrectWrong(form)));
