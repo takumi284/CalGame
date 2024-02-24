@@ -1,0 +1,22 @@
+.Clear {
+  text-align: center;
+}
+
+.ClearMessage {
+  font-size: 170px;
+  color: #7300ff;
+  text-align: center;
+  margin: 0px;
+  margin-top: 50px;
+}
+
+.ClearButton {
+  background-color: #4c586b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 30px;
+  margin: 10px;
+}
