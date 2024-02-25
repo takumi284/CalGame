@@ -1,4 +1,5 @@
 var operator = ['','+', '-', '*', '/', '(', ')'];
+//調査開始
 
 //CorrectWrong関数：引数として受け取ったlistの中身を数式に変換する関数
 function CorrectWrong(list){
