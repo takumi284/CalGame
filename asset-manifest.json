@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/takumi284/CalGame/static/css/main.b2d1aa58.css",
+    "main.js": "/takumi284/CalGame/static/js/main.1c713cfd.js",
+    "static/js/592.7f72a991.chunk.js": "/takumi284/CalGame/static/js/592.7f72a991.chunk.js",
+    "index.html": "/takumi284/CalGame/index.html",
+    "main.b2d1aa58.css.map": "/takumi284/CalGame/static/css/main.b2d1aa58.css.map",
+    "main.1c713cfd.js.map": "/takumi284/CalGame/static/js/main.1c713cfd.js.map",
+    "592.7f72a991.chunk.js.map": "/takumi284/CalGame/static/js/592.7f72a991.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b2d1aa58.css",
+    "static/js/main.1c713cfd.js"
+  ]
+}
