@@ -9,7 +9,7 @@ function App() {
   let scene;
   if (isClear === false) {
     scene = <Game setIsClear={setIsClear}/>;
-  } else if (isClear == true) {
+  } else if (isClear === true) {
     scene = <Clear setIsClear={setIsClear}/>;
   }
 
@@ -19,8 +19,9 @@ function App() {
         <h1>δέκαGame</h1>
         デカゲーム
       </header>
-      
-      {scene}
+      <div>
+        {scene}
+      </div>
     </div>
   );
 }
