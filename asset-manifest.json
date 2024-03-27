@@ -1,15 +1,22 @@
 {
   "files": {
     "main.css": "/CalGame/static/css/main.b2d1aa58.css",
-    "main.js": "/CalGame/static/js/main.7abc21d8.js",
+    "main.js": "/CalGame/static/js/main.29626076.js",
     "static/js/592.7f72a991.chunk.js": "/CalGame/static/js/592.7f72a991.chunk.js",
+    "static/media/2-2.png": "/CalGame/static/media/2-2.09da472569606e18f5ce.png",
+    "static/media/3-1.png": "/CalGame/static/media/3-1.56b59bd04fb3b30992e8.png",
+    "static/media/2-11.png": "/CalGame/static/media/2-11.9979c20ad914bd89687b.png",
+    "static/media/1-3.png": "/CalGame/static/media/1-3.ffa1daeba89363c3b1bc.png",
+    "static/media/11-2.png": "/CalGame/static/media/11-2.4daa6365347ce9da6258.png",
+    "static/media/1-2-1.png": "/CalGame/static/media/1-2-1.27bf998ecac3f5afcde2.png",
+    "static/media/4.png": "/CalGame/static/media/4.bfec074c6821b1da2c9d.png",
     "index.html": "/CalGame/index.html",
     "main.b2d1aa58.css.map": "/CalGame/static/css/main.b2d1aa58.css.map",
-    "main.7abc21d8.js.map": "/CalGame/static/js/main.7abc21d8.js.map",
+    "main.29626076.js.map": "/CalGame/static/js/main.29626076.js.map",
     "592.7f72a991.chunk.js.map": "/CalGame/static/js/592.7f72a991.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b2d1aa58.css",
-    "static/js/main.7abc21d8.js"
+    "static/js/main.29626076.js"
   ]
 }
