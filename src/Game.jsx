@@ -163,9 +163,9 @@ function Game() {
     return (
         <div className="Game">
         <body className="App-body">
-            <div align="left">
+            {/* <div align="left">
                 <button className="button2" onClick={answer}>正解例</button>
-            </div>
+            </div> */}
 
             <div className="number-field">
                 <div className="bracket">
@@ -243,6 +243,7 @@ function Game() {
                 <img src="image/1-2-1.png" className="image1" onClick={handleButton1_2_1}></img>
             </div>
             <p>{n}/5</p>
+            <button className="button2" onClick={answer}>答えを確認</button>
         </body>
     </div>
     );
