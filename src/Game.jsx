@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import './Game.css';
 import {check, CorrectWrong, test, make_answer} from './background';
+import image4 from './image/4.png';
+import image2_2 from './image/2-2.png';
+import image2_11 from './image/2-11.png';
+import image11_2 from './image/11-2.png';
+import image3_1 from './image/3-1.png';
+import image1_3 from './image/1-3.png';
+import image1_2_1 from './image/1-2-1.png';
 
 
-function Game() {
+function Game(props) {
     // 各inputの初期値をstateで管理
     while (true){
       var in1 = Math.floor(Math.random() * 10);
@@ -85,7 +92,7 @@ function Game() {
                 setBracket5(0);
                 setBracket6(0);
             } else if (n >= 5) {
-                window.location.href = "/Clear";
+                props.setIsClear(true);
             }
         } else{
             alert('不正解' + eval(CorrectWrong(form)));
@@ -231,16 +238,16 @@ function Game() {
             </div>
             <button className="button1" onClick={update}>answer</button>
             <div className='image_field'>
-                <img src="image/4.png" className="image1" onClick={handleButton4}></img>
-                <img src="image/2-2.png" className="image1" onClick={handleButton2_2}></img>
+                <img src={image4} className="image1" onClick={handleButton4}></img>
+                <img src={image2_2} className="image1" onClick={handleButton2_2}></img>
                 <p></p>
-                <img src="image/2-11.png" className="image1" onClick={handleButton2_11}></img>
-                <img src="image/11-2.png" className="image1" onClick={handleButton11_2}></img>
+                <img src={image2_11} className="image1" onClick={handleButton2_11}></img>
+                <img src={image11_2} className="image1" onClick={handleButton11_2}></img>
                 <p></p>
-                <img src="image/3-1.png" className="image1" onClick={handleButton3_1}></img>
-                <img src="image/1-3.png" className="image1" onClick={handleButton1_3}></img>
+                <img src={image3_1} className="image1" onClick={handleButton3_1}></img>
+                <img src={image1_3} className="image1" onClick={handleButton1_3}></img>
                 <p></p>
-                <img src="image/1-2-1.png" className="image1" onClick={handleButton1_2_1}></img>
+                <img src={image1_2_1} className="image1" onClick={handleButton1_2_1}></img>
             </div>
             <p>{n}/5</p>
             <button className="button2" onClick={answer}>答えを確認</button>

@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import Game from './Game';
 import Clear from './Clear';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
+  const [isClear, setIsClear] = useState(false);
+  let scene;
+  if (isClear === false) {
+    scene = <Game setIsClear={setIsClear}/>;
+  } else if (isClear == true) {
+    scene = <Clear setIsClear={setIsClear}/>;
+  }
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <header className="App-header">
-          <h1>δέκαGame</h1>
-          デカゲーム
-        </header>
-        <Routes>
-          <Route path="/" element={<Game />} />
-          <Route path="/Clear" element={<Clear />} />
-        </Routes>
-      </BrowserRouter>
+      <header className="App-header">
+        <h1>δέκαGame</h1>
+        デカゲーム
+      </header>
+      
+      {scene}
     </div>
   );
 }
